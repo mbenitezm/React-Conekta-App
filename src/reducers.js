@@ -31,7 +31,7 @@ export function tokenReducer(state = '', action) {
 
 
 export function formAttemptReducer(state=false, action) {
-  if (action.type === 'TOKEN_ERROR') {
+  if (action.type === 'ATTEMPT_END') {
     return false
   }
   else if (action.type === 'FORM_ATTEMPT'){
@@ -39,5 +39,14 @@ export function formAttemptReducer(state=false, action) {
   }
   else {
     return state;
+  }
+}
+
+export function formStateReducer(state='pending', action) {
+  if (action.type === 'UPDATE_FORM_STATE') {
+    return action.state
+  }
+  else {
+    return state
   }
 }
